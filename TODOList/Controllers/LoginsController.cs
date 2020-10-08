@@ -22,7 +22,7 @@ namespace TODOList.Controllers
         // GET: Logins
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Logins.ToListAsync());
+            return View(await _context.Login.ToListAsync());
         }
 
         // GET: Logins/Details/5
@@ -33,7 +33,7 @@ namespace TODOList.Controllers
                 return NotFound();
             }
 
-            var login = await _context.Logins
+            var login = await _context.Login
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (login == null)
             {
@@ -73,7 +73,7 @@ namespace TODOList.Controllers
                 return NotFound();
             }
 
-            var login = await _context.Logins.FindAsync(id);
+            var login = await _context.Login.FindAsync(id);
             if (login == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace TODOList.Controllers
                 return NotFound();
             }
 
-            var login = await _context.Logins
+            var login = await _context.Login
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (login == null)
             {
@@ -139,15 +139,15 @@ namespace TODOList.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            var login = await _context.Logins.FindAsync(id);
-            _context.Logins.Remove(login);
+            var login = await _context.Login.FindAsync(id);
+            _context.Login.Remove(login);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool LoginExists(long id)
         {
-            return _context.Logins.Any(e => e.Id == id);
+            return _context.Login.Any(e => e.Id == id);
         }
     }
 }

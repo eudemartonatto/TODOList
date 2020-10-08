@@ -10,9 +10,10 @@ namespace TODOList.Data
     {
     }
 
-    public DbSet<TODOItem> Items { get; set; }
-    public DbSet<Cliente> Clientes { get; set; }
-    public DbSet<Login> Logins { get; set; }
-    public DbSet<TODOItem> Acessar { get; set; }
+    public DbSet<Cliente> Cliente { get; set; }
+
+    public DbSet<TODOList.Models.Login> Login { get; set; }
+
+    public DbSet<TODOList.Models.TODOItem> TODOItem { get; set; }
   }
 }

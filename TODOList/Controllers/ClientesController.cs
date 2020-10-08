@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TODOList.Data;
 using TODOList.Models;
+using PagedList;
 
 namespace TODOList.Controllers
 {
@@ -22,7 +23,7 @@ namespace TODOList.Controllers
         // GET: Clientes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clientes.ToListAsync());
+            return View(await _context.Cliente.ToListAsync());
         }
 
         // GET: Clientes/Details/5
@@ -33,7 +34,7 @@ namespace TODOList.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.Clientes
+            var cliente = await _context.Cliente
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (cliente == null)
             {
@@ -73,7 +74,7 @@ namespace TODOList.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.Clientes.FindAsync(id);
+            var cliente = await _context.Cliente.FindAsync(id);
             if (cliente == null)
             {
                 return NotFound();
@@ -124,7 +125,7 @@ namespace TODOList.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.Clientes
+            var cliente = await _context.Cliente
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (cliente == null)
             {
@@ -139,15 +140,15 @@ namespace TODOList.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            var cliente = await _context.Clientes.FindAsync(id);
-            _context.Clientes.Remove(cliente);
+            var cliente = await _context.Cliente.FindAsync(id);
+            _context.Cliente.Remove(cliente);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ClienteExists(long id)
         {
-            return _context.Clientes.Any(e => e.Id == id);
+            return _context.Cliente.Any(e => e.Id == id);
         }
     }
 }

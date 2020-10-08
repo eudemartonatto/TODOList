@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TODOList.Data;
 using TODOList.Models;
+using PagedList;
 
 namespace TODOList.Controllers
 {
@@ -22,7 +23,7 @@ namespace TODOList.Controllers
         // GET: TODOItems
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Items.ToListAsync());
+            return View(await _context.TODOItem.ToListAsync());
         }
 
         // GET: TODOItems/Details/5
@@ -33,7 +34,7 @@ namespace TODOList.Controllers
                 return NotFound();
             }
 
-            var tODOItem = await _context.Items
+            var tODOItem = await _context.TODOItem
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tODOItem == null)
             {
@@ -54,7 +55,7 @@ namespace TODOList.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Concluido,DataHoraInsercao,DataHoraVencimento,DataHoraFinalizacao,DataHoraAtualização")] TODOItem tODOItem)
+        public async Task<IActionResult> Create([Bind("Id,Name,Descricao,Concluido,DataHoraInsercao,DataHoraVencimento,DataHoraFinalizacao,DataHoraAtualizacao")] TODOItem tODOItem)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +74,7 @@ namespace TODOList.Controllers
                 return NotFound();
             }
 
-            var tODOItem = await _context.Items.FindAsync(id);
+            var tODOItem = await _context.TODOItem.FindAsync(id);
             if (tODOItem == null)
             {
                 return NotFound();
@@ -86,7 +87,7 @@ namespace TODOList.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,Name,Concluido,DataHoraInsercao,DataHoraVencimento,DataHoraFinalizacao,DataHoraAtualização")] TODOItem tODOItem)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,Name,Descricao,Concluido,DataHoraInsercao,DataHoraVencimento,DataHoraFinalizacao,DataHoraAtualizacao")] TODOItem tODOItem)
         {
             if (id != tODOItem.Id)
             {
@@ -124,7 +125,7 @@ namespace TODOList.Controllers
                 return NotFound();
             }
 
-            var tODOItem = await _context.Items
+            var tODOItem = await _context.TODOItem
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (tODOItem == null)
             {
@@ -139,15 +140,15 @@ namespace TODOList.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            var tODOItem = await _context.Items.FindAsync(id);
-            _context.Items.Remove(tODOItem);
+            var tODOItem = await _context.TODOItem.FindAsync(id);
+            _context.TODOItem.Remove(tODOItem);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TODOItemExists(long id)
         {
-            return _context.Items.Any(e => e.Id == id);
+            return _context.TODOItem.Any(e => e.Id == id);
         }
     }
 }

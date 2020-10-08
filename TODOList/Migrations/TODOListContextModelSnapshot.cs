@@ -30,7 +30,7 @@ namespace TODOList.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clientes");
+                    b.ToTable("Cliente");
                 });
 
             modelBuilder.Entity("TODOList.Models.Login", b =>
@@ -50,7 +50,7 @@ namespace TODOList.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Logins");
+                    b.ToTable("Login");
                 });
 
             modelBuilder.Entity("TODOList.Models.TODOItem", b =>
@@ -62,7 +62,7 @@ namespace TODOList.Migrations
                     b.Property<bool>("Concluido")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DataHoraAtualização")
+                    b.Property<DateTime>("DataHoraAtualizacao")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("DataHoraFinalizacao")
@@ -74,12 +74,15 @@ namespace TODOList.Migrations
                     b.Property<DateTime>("DataHoraVencimento")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Descricao")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Items");
+                    b.ToTable("TODOItem");
                 });
 #pragma warning restore 612, 618
         }
