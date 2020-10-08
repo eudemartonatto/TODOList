@@ -1,11 +1,50 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+  ViewData["Title"] = "Acessar";
 }
+ 
+
+<style>
+  .text-center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+  }
+
+  td{
+    text-align:right;
+  }
+</style>
 
 <div class="text-center">
-  <h1 class="display-4">Bem Vindo</h1>
-  <p><a href="/Acesso">Acesse a TODO List</a>.</p>
+    <h1 class="display-4">Bem Vindo</h1>
+    <p>Login no Aplicativo</p>
+    <form asp-action="Logado" method="post">
+      <table>
+        <tr>
+          <td>
+            <label for="usuario"><b>Usuário</b></label>
+          </td>
+          <td>
+            <input type="text" placeholder="Entre o Nome do Usuário" name="usuario" id="usuario" required>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="senha"><b>Senha</b></label>
+          </td>
+          <td>
+            <input type="password" placeholder="Entre a Senha" name="senha" id="senha" required>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="submit">Entrar</button>
+          </td>
+          <td>
+            <button type="button" class="cancelbtn">Cancelar</button>
+          </td>
+        </tr>
 
-  <a class="nav-link text-dark" asp-area="" asp-controller="Acesso" asp-action="Index">Acesso</a>
-
+      </table>
+    </form>
 </div>

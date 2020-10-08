@@ -10,45 +10,51 @@
     <h4>TODOItem</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Concluido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Concluido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataHoraInsercao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataHoraInsercao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataHoraVencimento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataHoraVencimento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataHoraFinalizacao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataHoraFinalizacao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataHoraAtualização)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataHoraAtualização)
-        </dd>
+      <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Name)
+      </dt>
+      <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Name)
+      </dd>
+      <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Descricao)
+      </dt>
+      <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Descricao)
+      </dd>
+      <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Concluido)
+      </dt>
+      <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Concluido)
+      </dd>
+      <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.DataHoraInsercao)
+      </dt>
+      <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.DataHoraInsercao)
+      </dd>
+      <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.DataHoraVencimento)
+      </dt>
+      <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.DataHoraVencimento)
+      </dd>
+      <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.DataHoraFinalizacao)
+      </dt>
+      <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.DataHoraFinalizacao)
+      </dd>
+      <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.DataHoraAtualizacao)
+      </dt>
+      <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.DataHoraAtualizacao)
+      </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+    <a asp-action="Index">Volta à lista</a>
 </div>

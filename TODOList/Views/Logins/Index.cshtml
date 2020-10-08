@@ -1,47 +1,54 @@
 ﻿@model IEnumerable<TODOList.Models.Login>
 
 @{
-    ViewData["Title"] = "Login";
+  ViewData["Title"] = "Login";
 }
 
-<h1>Login</h1>
+@{
+  if (Program.EstaLogado)
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+  {
+    <h1>Login</h1>
+
+    <p>
+      <a asp-action="Create">Criar Novo</a>
+    </p>
+    <table class="table tabela" style="width:100%">
+      <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Senha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataLogin)
-            </th>
-            <th></th>
+          <th>
+            @Html.DisplayNameFor(model => model.Email)
+          </th>
+          <th>
+            @Html.DisplayNameFor(model => model.Senha)
+          </th>
+          <th>
+            @Html.DisplayNameFor(model => model.DataLogin)
+          </th>
+          <th></th>
         </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
+      </thead>
+      <tbody>
+        @foreach (var item in Model)
+        {
+          <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Email)
+              @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Senha)
+              @Html.DisplayFor(modelItem => item.Senha)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DataLogin)
+              @Html.DisplayFor(modelItem => item.DataLogin)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+              <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+              <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+              <a asp-action="Delete" asp-route-id="@item.Id">Apagar</a>
             </td>
-        </tr>
-}
-    </tbody>
-</table>
+          </tr>
+        }
+      </tbody>
+    </table>
+    }
+  }
